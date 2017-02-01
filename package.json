@@ -1,0 +1,19 @@
+{
+  "name": "cloudcompass1",
+  "version": "1.0.0",
+  "description": " Yelp application made for Cloud Computing course. Creating a web application that makes it easy for users to view on a map restaurants they want to visit.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "mongoose": "^4.8.1",
+    "mongoose-auto-increment": "^5.0.1"
+  },
+  "author": "Janahan Mathanamohan"
+}
