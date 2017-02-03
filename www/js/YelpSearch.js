@@ -5,7 +5,7 @@ $(document).ready(function(){
             location: $("#location").val(),
             radius: $("#radius").val(),
             sort : 0,
-            limit: $("#numpost").val()
+            limit: $("#limit").val()
         };
         $.post("https://cloudcompyelp.herokuapp.com/api/yelpSearch",toSend,function(data,status){
             if(status == "success"){
