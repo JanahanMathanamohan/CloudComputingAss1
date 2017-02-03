@@ -3,6 +3,8 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     var newStatus;
     var newData;
+
+    //Storing profile sent by google
     var prof = {
         ID: profile.getId(),
         Name: profile.getName(),
@@ -22,14 +24,18 @@ function onSignIn(googleUser) {
     //Getting login information
     $.post("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
         if(status == "success"){
-           newData = data;
-           console.log(data);
+            sessionStorage.setItem('loggedin', "loggedIn");
+            sessionStorage.setItem('data', JSON.stringify(data));
+            console.log(data);
         }
     },"json");
 }
 function signOut(){
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
+        sessionStorage.setItem('loggedin',"loggedOut");
+        sessionStorage.setItem('data',"");
+        sessionStorage.setItem('prof',"");
         console.log('User signed out.');
         $('#signOut').removeClass('show');
         $('#signOut').addClass('hidden');
