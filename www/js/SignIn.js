@@ -45,7 +45,7 @@ function clear(){
         sessionStorage.setItem('loggedin',"loggedOut");
         sessionStorage.setItem('data',"");
         sessionStorage.setItem('prof',"");
-
+        window.location.href = "../index.html";
 }
 function signOut(){
     var auth2 = gapi.auth2.getAuthInstance();
