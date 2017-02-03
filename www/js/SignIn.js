@@ -4,6 +4,8 @@ function onSignIn(googleUser) {
     if(loginStatus == "loggedOut"){
         if(loginStatus != "loggedIn"){
             loginStatus = "";
+        }else{
+            signout();
         }
     }else{
         var profile = googleUser.getBasicProfile();
