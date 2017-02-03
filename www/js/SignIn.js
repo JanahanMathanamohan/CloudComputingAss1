@@ -31,7 +31,7 @@ function onSignIn(googleUser) {
         },"json");
     }
 }
-function cleared(){
+function empty(){
         console.log('enter');
         localStorage.setItem('loggedin',"loggedOut");
         localStorage.setItem('data',"");
