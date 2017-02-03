@@ -4,11 +4,11 @@ function onSignIn(googleUser) {
     if(loginStatus == "loggedOut"){
         signOut();
     }else{
+
+        console.log("waiting");
         var profile = googleUser.getBasicProfile();
         var id_token = googleUser.getAuthResponse().id_token;
-        var newStatus;
-        var newData;
-        console.log("waiting");
+        console.log("waiting2");
         //Storing profile sent by google
         var prof = {
             ID: profile.getId(),
