@@ -2,7 +2,7 @@ function onSignIn(googleUser) {
     var loginStatus = localStorage.getItem('loggedin') ;
     console.log(":"+loginStatus);
     if(loginStatus == "loggedOut"){
-        signout();
+        signOut();
     }else{
         var profile = googleUser.getBasicProfile();
         var id_token = googleUser.getAuthResponse().id_token;
