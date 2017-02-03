@@ -15,11 +15,11 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Classifieds Ahoy</a>
+                <a class="navbar-brand" href="#"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="" onclick="signOut()">Sign Out</a></li>
+                    <li id=signOut class="hidden"><a href="" onclick="signOut()">Sign Out</a></li>
                 </ul>
             </div>
         </div>
@@ -29,11 +29,9 @@
             <div class="jumbotron">
                 <h1>Welcome to YelpFav </h1>
                 <p> Please sign in using you google account </p> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="col-md-6">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
             </div>
         </div>
     </div>
