@@ -1,36 +1,40 @@
 var express = require('express');
 var router = express.Router();
 var mongoOp = require("../models/accounts");
-
 router.route("/login")
     .post(function(req,res){
         var db = new mongoOp.accounts();
         var response = {};
-        mongoOp.accounts.find({email:req.profile.Email},function(err,data){
+        mongoOp.accounts.find({email:req.body.Email},function(err,data){
             if(err){
                 res.json({"error":true, "message":true});
             }else{
-                if(data != {}){
-                    response = {"error":false, "message":data};
+                if(data.length != 0){
+                    response = {"create":true,"error":false, "message":data};
                     res.json(response);
                 }else{
                     console.log('created');
-                    db.accounts.email = req.body.Email;
+                    db.email = req.body.Email;
                     db.save(function(err){
                         if(err) {
-                            response = {"error" : true,"message" :err };
+                            response = { "error" :false ,"message" :data};
                             res.json(response);
-                            console.log('old');
                         } else {
-                            mongoOp.accounts.find({email:req.profile.Email},function(err,data){
-                                response = {"error":false, "message":data};
+                            mongoOp.accounts.find({email:req.body.Email},function(err,data){
+                                response = {"create":false,"error":false, "message":data};
+                                console.log('new');
                                 res.json(response);
                             });
-                            console.log('new');
                         }
                     });
                 }
             }
         });
+    })
+    .get(function(req,res){
+        var response = {};
+        mongoOp.accounts.find({},function(err,data){
+             res.json({'data':data});
+        })
     });
 module.exports = router;
