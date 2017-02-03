@@ -41,12 +41,15 @@ function onSignIn(googleUser) {
         },"json");
     }
 }
-function signOut(){
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
+function clear(){
         sessionStorage.setItem('loggedin',"loggedOut");
         sessionStorage.setItem('data',"");
         sessionStorage.setItem('prof',"");
+
+}
+function signOut(){
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
         console.log('User signed out.');
         $('#signOut').removeClass('show');
         $('#signOut').addClass('hidden');
