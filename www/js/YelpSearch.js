@@ -10,6 +10,7 @@ $(document).ready(function(){
         $.post("https://cloudcompyelp.herokuapp.com/api/yelpSearch",toSend,function(data,status){
             if(status == "success"){
                 console.log("success")
+                console.log(data);
                 if(data.error){
                     alert(data.message)
                 }else{
