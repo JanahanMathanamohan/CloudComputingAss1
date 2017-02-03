@@ -22,7 +22,6 @@ $(document).ready(function(){
     });
     function fill(data){
         console.log(data.buisness);
-        $('#resultHide').remove();
         var item = data.buisness;
         var panel2 = '<div id=lD'+i+' class="panel panel-danger ps" ><div class="markerpoint panel-heading psh"><h3 class="panel-title psh"><b>Results</h3></div>';
         for(var i = 0; i < item.length;i++){
