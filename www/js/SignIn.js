@@ -8,7 +8,7 @@ function onSignIn(googleUser) {
         var id_token = googleUser.getAuthResponse().id_token;
         var newStatus;
         var newData;
-
+        console.log("waiting");
         //Storing profile sent by google
         var prof = {
             ID: profile.getId(),
