@@ -21,6 +21,11 @@ function getLocation() {
 function showPosition(position){
     uluru = {lat: position.coords.latitude, lng: position.coords.longitude}
     map.setCenter(uluru);
+    var marker = new google.maps.Marker({
+        map: map,
+        position: uluru
+    });
+
 }
 
 //Initializing Google Maps
@@ -30,34 +35,12 @@ function initMap() {
         zoom: 16,
         center: uluru
     });
-    console.log(map);
     var input = document.getElementById('location');
     geocoder = new google.maps.Geocoder();
     infowindow = new google.maps.InfoWindow();
 }
 
 $(document).ready(function(){
-    $("#submit").click(function(){
-        $('body').addClass("loading");
-        numpost = parseInt($('#numpost').val())
-        var toSend = {
-            keyword: $("#search").val(),
-            location: $("#location").val(),
-            distance: $("#distance").val(),
-            pages:numpost*4
-        };
-        $("#loading").show();
-        geocoder.geocode( { 'address': toSend.location}, function(results, status){
-            if(status == 'OK'){
-                map.setCenter(results[0].geometry.location);
-                map.setZoom(12);
-                toSend.location = getAddressInfo(results[0].address_components ,toSend.location );
-                makeLocation(results[0].geometry.location,toSend);
-            }else{
-                alert("Error");
-            }
-        });
-    });
     function makeLocation(location,toSend){
         companies = new Object();
         var promises = []
