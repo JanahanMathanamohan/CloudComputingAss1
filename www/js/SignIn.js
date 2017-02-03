@@ -1,5 +1,5 @@
 function onSignIn(googleUser) {
-    var loginStatus = sessionStorage.getItem('loggedin') ;
+    var loginStatus = localStorage.getItem('loggedin') ;
     console.log(":"+loginStatus);
     if(loginStatus == "loggedOut"){
         if(loginStatus != "loggedIn"){
@@ -24,7 +24,7 @@ function onSignIn(googleUser) {
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-        sessionStorage.setItem('profile', JSON.stringify(prof));
+        localStorage.setItem('profile', JSON.stringify(prof));
 
         //Making the sign out link visible
         $('#signOut').removeClass('hidden');
@@ -33,8 +33,8 @@ function onSignIn(googleUser) {
         //Getting login information
         $.post("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
             if(status == "success"){
-                sessionStorage.setItem('loggedin', "loggedIn");
-                sessionStorage.setItem('data', JSON.stringify(data));
+                localStorage.setItem('loggedin', "loggedIn");
+                localStorage.setItem('data', JSON.stringify(data));
                 console.log(data);
                 window.location.href = "../home.html";
             }
@@ -42,9 +42,9 @@ function onSignIn(googleUser) {
     }
 }
 function clear(){
-        sessionStorage.setItem('loggedin',"loggedOut");
-        sessionStorage.setItem('data',"");
-        sessionStorage.setItem('prof',"");
+        localStorage.setItem('loggedin',"loggedOut");
+        localStorage.setItem('data',"");
+        localStorage.setItem('prof',"");
         window.location.href = "../index.html";
 }
 function signOut(){

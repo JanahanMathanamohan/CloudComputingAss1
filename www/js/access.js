@@ -1,10 +1,9 @@
 $(document).ready(function(){
-    var loginStatus = sessionStorage.getItem('loggedin') ;
-    console.log(loginStatus)
+    var loginStatus = localStorage.getItem('loggedin') ;
     if(loginStatus != 'loggedIn' || loginStatus != 'loggedOut'){
-        sessionStorage.setItem('loggedin',"");
-        sessionStorage.setItem('data',"");
-        sessionStorage.setItem('prof',"");
+        localStorage.setItem('loggedin',"");
+        localStorage.setItem('data',"");
+        localStorage.setItem('prof',"");
         console.log("Not Logged in");
     }
 });
