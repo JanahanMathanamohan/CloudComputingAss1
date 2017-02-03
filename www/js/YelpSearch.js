@@ -21,9 +21,9 @@ $(document).ready(function(){
         },"json");
     });
     function fill(data){
-        console.log(data.buisness);
+        console.log(data.buisnesses);
         $('#resultHide').empty();
-        var item = data.buisness;
+        var item = data.buisnesses;
         var panel2 = '<div id=lD class="panel panel-danger ps" ><div class="markerpoint panel-heading psh"><h3 class="panel-title psh"><b>Results</h3></div>';
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
