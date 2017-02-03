@@ -27,6 +27,7 @@ function onSignIn(googleUser) {
             sessionStorage.setItem('loggedin', "loggedIn");
             sessionStorage.setItem('data', JSON.stringify(data));
             console.log(data);
+            window.location.href = "../home.html";
         }
     },"json");
 }
