@@ -8,7 +8,7 @@ var path = __dirname + '/www/';
 router.get("/",function(req,res){
     res.sendFile(path + "index.html");
 });
-router.get("api",api);
+router.get("/api",api);
 app.use("/",router);
 app.use(express.static(__dirname + '/www'));
 app.set('port', (process.env.PORT || 8180));

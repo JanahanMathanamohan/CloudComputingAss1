@@ -20,7 +20,7 @@ function onSignIn(googleUser) {
     $('#signOut').addClass('show');
 
     //Getting login information
-    $.get("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
+    $.post("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
         if(status == "success"){
            newData = data;
            console.log(data);
