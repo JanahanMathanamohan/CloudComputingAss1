@@ -30,7 +30,7 @@ function initMap() {
         zoom: 16,
         center: uluru
     });
-    consoel.log(map);
+    console.log(map);
     var input = document.getElementById('location');
     geocoder = new google.maps.Geocoder();
     infowindow = new google.maps.InfoWindow();
