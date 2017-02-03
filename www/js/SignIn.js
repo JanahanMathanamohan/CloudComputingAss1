@@ -1,6 +1,6 @@
 function onSignIn(googleUser) {
     var loginStatus = sessionStorage.getItem('loggedin') ;
-    console.log(loginStatus);
+    console.log(":"+loginStatus);
     if(loginStatus == "loggedOut"){
         if(loginStatus != "loggedIn"){
             loginStatus = "";
