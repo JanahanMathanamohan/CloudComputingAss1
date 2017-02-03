@@ -4,7 +4,6 @@ function onSignIn(googleUser) {
     if(loginStatus == "loggedOut"){
         signOut();
     }else{
-
         console.log("waiting");
         var profile = googleUser.getBasicProfile();
         var id_token = googleUser.getAuthResponse().id_token;
@@ -21,7 +20,7 @@ function onSignIn(googleUser) {
         $('#signOut').removeClass('hidden');
         $('#signOut').addClass('show');
         //Getting login information
-        $.post("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
+        $.post("https://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
             if(status == "success"){
                 localStorage.setItem('loggedin', "loggedIn");
                 localStorage.setItem('data', JSON.stringify(data));
