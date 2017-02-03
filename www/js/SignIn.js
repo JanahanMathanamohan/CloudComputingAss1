@@ -25,7 +25,7 @@ function onSignIn(googleUser) {
            newData = data;
            console.log(data);
         }
-    },json);
+    },"json");
 }
 function signOut(){
     var auth2 = gapi.auth2.getAuthInstance();
