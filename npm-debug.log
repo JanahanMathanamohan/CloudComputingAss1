@@ -9,8 +9,8 @@
 6 silly lifecycle cloudcompass1@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle cloudcompass1@1.0.0~start: cloudcompass1@1.0.0
 8 verbose lifecycle cloudcompass1@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle cloudcompass1@1.0.0~start: PATH: /home/janahan/.linuxbrew/lib/node_modules/npm/bin/node-gyp-bin:/home/janahan/Desktop/CloudCompAss1/node_modules/.bin:/home/janahan/.linuxbrew/Cellar/node/6.1.0/bin:/home/janahan/google-cloud-sdk/bin:/home/janahan/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/default-java/bin:/home/janahan/android-sdk-linux/tools
-10 verbose lifecycle cloudcompass1@1.0.0~start: CWD: /home/janahan/Desktop/CloudCompAss1
+9 verbose lifecycle cloudcompass1@1.0.0~start: PATH: /home/janahan/.linuxbrew/lib/node_modules/npm/bin/node-gyp-bin:/home/janahan/Desktop/cloudcompyelp/CloudComputingAss1/node_modules/.bin:/home/janahan/.linuxbrew/Cellar/node/6.1.0/bin:/home/janahan/google-cloud-sdk/bin:/home/janahan/.linuxbrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/default-java/bin:/home/janahan/android-sdk-linux/tools
+10 verbose lifecycle cloudcompass1@1.0.0~start: CWD: /home/janahan/Desktop/cloudcompyelp/CloudComputingAss1
 11 silly lifecycle cloudcompass1@1.0.0~start: Args: [ '-c', 'node main.js' ]
 12 silly lifecycle cloudcompass1@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle cloudcompass1@1.0.0~start: Failed to exec start script
@@ -25,7 +25,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:850:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
 15 verbose pkgid cloudcompass1@1.0.0
-16 verbose cwd /home/janahan/Desktop/CloudCompAss1
+16 verbose cwd /home/janahan/Desktop/cloudcompyelp/CloudComputingAss1
 17 error Linux 3.19.0-32-generic
 18 error argv "/home/janahan/.linuxbrew/Cellar/node/6.1.0/bin/node" "/home/janahan/.linuxbrew/bin/npm" "start"
 19 error node v6.1.0
