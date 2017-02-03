@@ -25,6 +25,7 @@ function showPosition(position){
 
 //Initializing Google Maps
 function initMap() {
+    getLocation();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: uluru
