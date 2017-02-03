@@ -11,7 +11,7 @@ $(document).ready(function(){
             if(status == "success"){
                 console.log("success")
                 if(data.error){
-                    alert(data.msg)
+                    alert(data.message)
                 }else{
                     console.log(data.message);
                 }
