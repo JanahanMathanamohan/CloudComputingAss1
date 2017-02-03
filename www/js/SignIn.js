@@ -16,16 +16,10 @@ function onSignIn(googleUser) {
             Img: profile.getImageUrl(),
             Email: profile.getEmail()
         };
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
         localStorage.setItem('profile', JSON.stringify(prof));
-
         //Making the sign out link visible
         $('#signOut').removeClass('hidden');
         $('#signOut').addClass('show');
-
         //Getting login information
         $.post("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
             if(status == "success"){
