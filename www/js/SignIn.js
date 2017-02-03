@@ -1,6 +1,8 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
+    var newStatus;
+    var newData;
     var prof = {
         ID: profile.getId(),
         Name: profile.getName(),
@@ -18,17 +20,12 @@ function onSignIn(googleUser) {
     $('#signOut').addClass('show');
 
     //Getting login information
-    $http({
-        method: "get",
-        url: "http://cloudcompyelp.herokuapp.com/api/login",
-        data: prof,
-        headers: {'Content-Type': 'application/json'}
-    }).then(function (response) {
-
-        }, function (responseError) {
-            console.log("failed to reterieve data");
+    $.get("http://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
+        if(status == "success"){
+           newData = data;
+           console.log(data);
         }
-    );
+    },json);
 }
 function signOut(){
     var auth2 = gapi.auth2.getAuthInstance();
