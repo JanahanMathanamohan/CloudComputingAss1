@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    if(sessionStorage.getItem('loggedin') != 'loggedIn'){
+    var loginStatus = sessionStorage.getItem('loggedin') ;
+    if(loginStatus != 'loggedIn' || loginStatus != 'loggedOut'){
         sessionStorage.setItem('loggedin',"");
         sessionStorage.setItem('data',"");
         sessionStorage.setItem('prof',"");
