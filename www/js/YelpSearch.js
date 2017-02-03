@@ -13,9 +13,9 @@ $(document).ready(function(){
                 console.log(data);
                 if(data.error){
                     alert(data.message.data)
-                    create
                 }else{
                     console.log(data.message);
+                    fill(data.message);
                 }
             }
         },"json");
