@@ -13,14 +13,13 @@ var validcount = 0;
 // Set the position for Google maps
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        return navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 }
 function showPosition(position){
-    var uluru = {lat: position.coords.latitude, lng: position.coords.longitude}
-    console.log(uluru);
+    return{lat: position.coords.latitude, lng: position.coords.longitude}
 }
 
 //Initializing Google Maps
@@ -28,7 +27,7 @@ function initMap() {
     getLocation();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: uluru
+        center: getLocation();
     });
     console.log(map);
     var input = document.getElementById('location');
