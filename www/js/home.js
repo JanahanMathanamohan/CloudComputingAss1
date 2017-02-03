@@ -27,7 +27,7 @@ function initMap() {
     getLocation();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
-        center: getLocation();
+        center: getLocation()
     });
     console.log(map);
     var input = document.getElementById('location');
