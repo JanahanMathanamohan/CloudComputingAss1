@@ -20,6 +20,7 @@ function getLocation() {
 }
 function showPosition(position){
     var uluru = {lat: position.coords.latitude, lng: position.coords.longitude}
+    console.log(uluru);
 }
 
 //Initializing Google Maps
