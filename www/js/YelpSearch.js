@@ -1,8 +1,4 @@
-var data = {
-
-}
 $(document).ready(function(){
-    fill();
     $("#submit").click(function(){
         var toSend = {
             term: $("#term").val(),
