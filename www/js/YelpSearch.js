@@ -29,8 +29,8 @@ $(document).ready(function(){
         panel2 += "<ul class='list-group'>";
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
-            console.log(tmp)
-            panel2 += '<li class="list-group-item"><div class="col-md-3 text-center maxH"><img src='+tmp.image_url+' /></div><div class="col-md-6 text-center maxH">'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'">Link</a><br></div><div class="col-md-3 text-center maxH"><button type="button">Interest</button></div></li>';
+            console.log(tmp);
+            panel2 += '<li class="list-group-item"><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'">Link</a><br><button type="button">Interest</button></li>';
         }
         panel2 += '</ul>'
         panel2 += '</div>'
