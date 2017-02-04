@@ -30,7 +30,7 @@ $(document).ready(function(){
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
             console.log(tmp)
-            panel2 += '<li class="list-group-item">'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'">Link</a><br>'+tmp.SALARY+'<div class="col-md-4 text-center maxH"><button type="button">Interest</button></li></div>';
+            panel2 += '<li class="list-group-item"><div class="col-md-3 text-center maxH"><img src='+tmp.image_url+' /></div><div class="col-md-6 text-center maxH">'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'">Link</a><br></div><div class="col-md-3 text-center maxH"><button type="button">Interest</button></div></li>';
         }
         panel2 += '</ul>'
         panel2 += '</div>'
