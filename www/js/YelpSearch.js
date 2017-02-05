@@ -4,7 +4,6 @@ $(document).ready(function(){
     var update = [];
     var results;
     $("#submit").click(function(){
-        $("#loading").hide();
         var toSend = {
             term: $("#term").val(),
             location: $("#location").val(),
@@ -13,7 +12,6 @@ $(document).ready(function(){
             limit: $("#limit").val()
         };
         $.post("https://cloudcompyelp.herokuapp.com/api/yelpSearch",toSend,function(data,status){
-            $("#loading").show();
             if(status == "success"){
                 console.log("success")
                 console.log(data);
