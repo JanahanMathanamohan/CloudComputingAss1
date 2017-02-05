@@ -13,13 +13,10 @@ $(document).ready(function(){
         };
         $.post("https://cloudcompyelp.herokuapp.com/api/yelpSearch",toSend,function(data,status){
             if(status == "success"){
-                console.log("success")
-                console.log(data);
                 if(data.error){
                     alert(data.message.data)
                 }else{
                     results = data.message.businesses;
-                    console.log(results);
                     fill(results);
                 }
             }
@@ -40,7 +37,6 @@ $(document).ready(function(){
     });
 
     $("#update").on("click",".unresultB", function(){
-        console.log(this.id);
         var id = this.id;
         var num= parseInt(id);
         $('#M'+num).remove();
@@ -75,27 +71,21 @@ $(document).ready(function(){
     }
 
     $("#addFav").on("click",function(){
-        console.log(update[x]);
-        console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
-        console.log(toSend);
         for(var x = 0; x < update.length; x++){
             toSend.favourites.push(results[update[x]]);
         }
-        console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
-                console.log("success")
-                console.log(data);
                 if(data.error){
                     alert(data.message.data)
                 }else{
+                    $('#u').empty();
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(data.message));
                     console.log(results);
                 }
             }
-            console.log(status);
         },"json");
 
     });
