@@ -38,13 +38,13 @@ $(document).ready(function(){
         count++;
     });
 
-    $("#update").live("click",".unresultB", function(){
+    $("#update").on("click",".unresultB", function(){
         console.log(this.id);
         var id = this.id;
         var num= parseInt(id);
-        $('#M'+count).remove();
-        $('#R'+count).removeClass("hide");
-        $('#R'+count).addClass("show");
+        $('#M'+num).remove();
+        $('#R'+num).removeClass("hide");
+        $('#R'+num).addClass("show");
         var x = update.indexOf(count);
         if(x != -1){
             update.splice(x,1);
