@@ -52,18 +52,24 @@ router.route("/update")
             if(err){
                 res.json({"error":true, "message":true});
             }else{
-                data[0].favourites = req.body.favourites;
-                data[0].save(function(err){
-                    if(err) {
-                        response = { "error":data,"message":err};
-                    } else {
-                        response = {"error":false, "message":data[0]};
-                    }
+                if(data.length != 0){
+                    data[0].favourites = req.body.favourites;
+                    data[0].save(function(err){
+                        if(err) {
+                            response = { "error":true,"message":err};
+                        } else {
+                            response = {"error":false, "message":data[0]};
+                        }
+                        res.json(response);
+                    });
+                }else{
+                    response = {"error":true, "message":"no email"};
                     res.json(response);
-                });
+                }
             }
         });
     });
+
 router.route("/yelpSearch")
     .post(function(req,res){
         yelp.search({

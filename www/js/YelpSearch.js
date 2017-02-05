@@ -82,10 +82,10 @@ $(document).ready(function(){
                     alert(data.message.data)
                 }else{
                     results = data.message;
-                    console.log(results);
-                    fill(results);
+                    localStorage.setItem('data', JSON.stringify(data.message));
                 }
             }
+            console.log(status);
         },"json");
 
     });
