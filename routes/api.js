@@ -48,7 +48,7 @@ router.route("/login")
 router.route("/update")
     .post(function(req,res){
         var response = {};
-        mongoOp.accounts.find({email:req.body.Email},function(err,data){
+        mongoOp.accounts.find({email:req.body.email},function(err,data){
             if(err){
                 res.json({"error":true, "message":true});
             }else{
