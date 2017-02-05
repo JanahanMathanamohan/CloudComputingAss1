@@ -25,9 +25,6 @@ $(document).ready(function(){
             }
         },"json");
     });
-    $("#interest").click(function(){
-
-    })
     function fill(data){
         $('#result').empty();
         var item = data.businesses;
@@ -36,7 +33,6 @@ $(document).ready(function(){
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
             panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=interest('+i+','+tmp+')>Interest</button></li>';
-            console.log(tmp);
         }
         $('#result').append(panel2);
     }
@@ -44,13 +40,13 @@ $(document).ready(function(){
         console.log(num);
         console.log(tmp);
         $('#R'+num).addClass("hide");
-        var panel = '<li class="list-group-item" id=M'+order+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=interest('+order+')>Interest</button></li>';
+        var panel = '<li class="list-group-item" id=M'+order+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=uninterest('+order+')>Interest</button></li>';
         $('#u').add(panel);
         update.push(tmp);
         order++;
         count++;
     }
-    function remove(count){
+    function uninterest(count){
         $('#M'+count).remove();
         $('#R'+count).removeClass("hide");
         $('#R'+count).addClass("show");
