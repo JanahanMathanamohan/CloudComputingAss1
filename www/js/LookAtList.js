@@ -1,6 +1,7 @@
 $(document).ready(function(){
     var count = 0;
     var order = 0;
+    var update = [];
     console.log(localStorage.getItem('data'));
     var data = JSON.parse(localStorage.getItem('data'));
     fill(data);

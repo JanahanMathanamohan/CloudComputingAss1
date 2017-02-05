@@ -45,5 +45,6 @@ function signOut(){
     });
 }
 $(document).ready(function(){
+    var favs = data.message.favourites;
 });
 
