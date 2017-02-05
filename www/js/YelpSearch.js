@@ -28,11 +28,10 @@ $(document).ready(function(){
 
     $("#result").on("click",".resultB", function(){
         var id = this.id;
-        var num= id.substring(id.indexOf('R')+1);
-        num= parseInt(num);
+        var num= parseInt(id);
         var tmp = results[num];
         $('#R'+num).addClass("hide");
-        var panel = '<li class="list-group-item" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id=M'+order+'>Interest</button></li>';
+        var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Not Interest</button></li>';
         $('#u').append(panel);
         update.push(tmp);
         order++;
@@ -42,8 +41,7 @@ $(document).ready(function(){
     $("#update").on("click",".unresultB", function(){
         console.log(this.id);
         var id = this.id;
-        var num= id.substring(id.indexOf('M')+1);
-        num= parseInt(num);
+        var num= parseInt(id);
         $('#M'+count).remove();
         $('#R'+count).removeClass("hide");
         $('#R'+count).addClass("show");
@@ -60,7 +58,8 @@ $(document).ready(function(){
         console.log(item);
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
-            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id="R'+i+'" class="resultB">Interest</button></li>';
+            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id='+i+'" class="resultB">Interest</button></li>';
+
         }
         console.log(panel2);
         $('#results').append(panel2);
