@@ -38,7 +38,7 @@ $(document).ready(function(){
         count++;
     });
 
-    $("#update").on("click",".unresultB", function(){
+    $("#update").live("click",".unresultB", function(){
         console.log(this.id);
         var id = this.id;
         var num= parseInt(id);
