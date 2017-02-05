@@ -8,3 +8,16 @@ body{
 #show{
     visibility: visible;
 }
+.fixed-panel{
+    max-height: %30;
+}
+.bottomLine{
+    border-bottom: solid 	#428bca
+}
+.bottomLineR{
+    border-bottom: solid 	#d9534f
+}
+
+.maxH{
+    max-height:100%;
+}
