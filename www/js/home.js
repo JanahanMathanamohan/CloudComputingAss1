@@ -44,7 +44,7 @@ function initMap() {
         location = favs[x].location;
         var marker = new google.maps.Marker({
             map: map,
-            position: {lat: location.coordinate.latitude, lng: location.coordinate.longtitude },
+            position: {lat: location.coordinate.latitude, lng: location.coordinate.longitude },
             icon: '../assets/restaurant.png'
         })
     }
