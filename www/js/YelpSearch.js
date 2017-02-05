@@ -67,6 +67,7 @@ $(document).ready(function(){
     }
     $("#addFav").on("click",function(){
         console.log(update[x]);
+        console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
         console.log(toSend);
         for(var x = 0; x < update.length; x++){
