@@ -34,7 +34,7 @@ $(document).ready(function(){
         $('#R'+num).addClass("hide");
         var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Not Interest</button></li>';
         $('#u').append(panel);
-        update.push(tmp);
+        update.push(id);
         order++;
         count++;
     });
@@ -79,11 +79,11 @@ $(document).ready(function(){
         $('#results').append(panel2);
     }
     $("#addFav").on("click",function(){
-        console.log(update[x]);
         console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
         console.log(toSend);
         for(var x = 0; x < update.length; x++){
+            console.log(update[x]);
             toSend.favourites.push(results[update[x]]);
         }
         console.log(toSend);
