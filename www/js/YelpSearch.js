@@ -65,12 +65,13 @@ $(document).ready(function(){
         $('#results').append(panel2);
     }
     $("#addFav").on("click",function(){
-        var toSend =[];
+        console.log(update[x]);
+        var toSend = JSON.parse(localStorage.getItem('data'));
         for(var x = 0; x < update.length; x++){
-            toSend.push(results[update[x]]);
+            toSend.favourites.push(results[update[x]]);
         }
         console.log(toSend);
-        $.post("https://cloudcompyelp.herokuapp.com/api/updateList",toSend,function(data,status){
+        $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
                 console.log("success")
                 console.log(data);

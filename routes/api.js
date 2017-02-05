@@ -78,5 +78,4 @@ router.route("/yelpSearch")
             res.json({error:true, message: err});
         });
     });
-
 module.exports = router;
