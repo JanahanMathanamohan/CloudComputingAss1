@@ -32,15 +32,12 @@ function showPosition(position){
 function initMap() {
     getLocation();
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 16,
+        zoom: 14,
         center: uluru
     });
     var input = document.getElementById('location');
     geocoder = new google.maps.Geocoder();
     infowindow = new google.maps.InfoWindow();
-}
-
-$(document).ready(function(){
     var favs = JSON.parse(localStorage.getItem('data')).favourites;
     var location;
     for(var x = 0; x < favs.length; x++){
@@ -51,5 +48,9 @@ $(document).ready(function(){
             icon: '../assets/restaurant.png'
         })
     }
+
+}
+
+$(document).ready(function(){
 });
 
