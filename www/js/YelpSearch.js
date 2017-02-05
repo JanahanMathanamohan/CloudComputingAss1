@@ -58,7 +58,7 @@ $(document).ready(function(){
     });
     function fill(data){
         $('#results').empty();
-        var item = data.businesses;
+        var item = data;
         var panel2 = "";
         console.log(item);
         for(var i = 0; i < item.length;i++){
