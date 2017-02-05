@@ -51,7 +51,7 @@ $(document).ready(function(){
         var favs = toSend.favourites;
         var newFav = [];
         console.log(toSend);
-        for(var x = 0; x < fav.length; x++){
+        for(var x = 0; x < favs.length; x++){
             check = true;
             for(var i = 0; i < update.length; i++){
                 if(x == update[i]){
