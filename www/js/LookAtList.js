@@ -26,16 +26,12 @@ $(document).ready(function(){
         $('#M'+num).remove();
         $('#R'+num).removeClass("hide");
         $('#R'+num).addClass("show");
-        update = removeArray(num,update);
-    });
-
-    function removeArray(count,array){
-        var x = array.indexOf(count);
+        var x = array.indexOf(num);
         if(x != -1){
-            array.splice(x,1);
+            update.splice(x,1);
         }
-        return array;
-    }
+
+    });
     function fill(data){
         $('#results').empty();
         var item = data.favourites;
@@ -51,10 +47,22 @@ $(document).ready(function(){
     $("#removeList").on("click",function(){
         console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
+        var check = true;
+        var favs = toSend.favourites;
+        var newFav = [];
         console.log(toSend);
-        for(var x = 0; x < update.length; x++){
-            toSend.favourites = removeArray(update[x],toSend.favourites);
+        for(var x = 0; x < fav.length; x++){
+            check = true;
+            for(var i = 0; i < update.length; i++){
+                if(x == update[i]){
+                    check = false;
+                }
+            }
+            if(check){
+                newFav.push(favs[x]);
+            }
         }
+        toSend.favourites = newFav;
         console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
