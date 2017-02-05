@@ -31,6 +31,7 @@ $(document).ready(function(){
     function fill(data){
         $('#result').empty();
         var item = data.businesses;
+        var panel2;
         console.log(item);
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
