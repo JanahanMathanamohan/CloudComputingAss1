@@ -54,7 +54,9 @@ $(document).ready(function(){
     });
     function fill(data){
         $('#results').empty();
-        var favs = JSON.parse(localStorage.getItem('data')).favourites;
+        var favs = JSON.parse(localStorage.getItem('data'));
+        console.log(favs);
+        favs = favs.favourites;
         var item = data;
         var panel2 = "";
         var exist = false;
