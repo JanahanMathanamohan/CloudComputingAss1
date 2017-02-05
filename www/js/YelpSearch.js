@@ -32,24 +32,19 @@ $(document).ready(function(){
         $('#result').empty();
         var item = data.businesses;
         console.log(item);
-        var panel2 = '<div id=lD class="panel panel-danger ps" ><div class="markerpoint panel-heading psh"><h3 class="panel-title psh"><b>Results</h3></div>';
-        panel2 += '<div class="panel-body bottomLineR" id="l'+i+'SD">';
-        panel2 += "<ul class='list-group'>";
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
             panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=interest('+i+','+tmp+')>Interest</button></li>';
             console.log(tmp);
         }
-        panel2 += '</ul>'
-        panel2 += '</div>'
-        panel2 += '</div>';
-        console.log(panel2);
         $('#result').append(panel2);
     }
     function interest(num, tmp){
+        console.log(num);
+        console.log(tmp);
         $('#R'+num).addClass("hide");
         var panel = '<li class="list-group-item" id=M'+order+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=interest('+order+')>Interest</button></li>';
-        $('u').add(panel);
+        $('#u').add(panel);
         update.push(tmp);
         order++;
         count++;
