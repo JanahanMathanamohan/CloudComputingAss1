@@ -25,17 +25,27 @@ $(document).ready(function(){
             }
         },"json");
     });
-    function interest(num){
-        console.log(num);
+
+    $("#result").on("click",".resultB", function(){
+        console.log(this.id);
+        var id = this.id;
+        var num= id.substring(id.indexOf('R')+1);
+        num= parseInt(num);
         var tmp = results[num];
         $('#R'+num).addClass("hide");
-        var panel = '<li class="list-group-item" id=M'+order+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick="uninterest('+order+')">Interest</button></li>';
+        var panel = '<li class="list-group-item" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id=M'+order+'>Interest</button></li>';
         $('#u').add(panel);
         update.push(tmp);
         order++;
         count++;
-    }
-    function uninterest(count){
+    });
+
+    $("#update").on("click",".unresultB", function(){
+        console.log(this.id);
+        var id = this.id;
+        var num= id.substring(id.indexOf('M')+1);
+        num= parseInt(num);
+
         $('#M'+count).remove();
         $('#R'+count).removeClass("hide");
         $('#R'+count).addClass("show");
@@ -43,7 +53,8 @@ $(document).ready(function(){
         if(x != -1){
             update.splice(x,1);
         }
-    }
+
+    });
     function fill(data){
         $('#results').empty();
         var item = data.businesses;
@@ -51,11 +62,12 @@ $(document).ready(function(){
         console.log(item);
         for(var i = 0; i < item.length;i++){
             var tmp = item[i];
-            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick="interest('+i+')">Interest</button></li>';
+            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id="R'+i+'" class="resultB">Interest</button></li>';
         }
         console.log(panel2);
         $('#results').append(panel2);
-    }    function addFav(){
+    }
+    $("#addFav").on("click",function(){
         var toSend =[];
         for(var x = 0; x < update.length; x++){
             toSend.push(results[update[x]]);
@@ -75,7 +87,7 @@ $(document).ready(function(){
             }
         },"json");
 
-    }
+    });
 });
 
 
