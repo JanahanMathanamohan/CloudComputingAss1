@@ -21,7 +21,7 @@ function onSignIn(googleUser) {
         $.post("https://cloudcompyelp.herokuapp.com/api/login",prof,function(data,status){
             if(status == "success"){
                 localStorage.setItem('loggedin', "loggedIn");
-                localStorage.setItem('data', JSON.stringify(data));
+                localStorage.setItem('data', JSON.stringify(data.message));
                 console.log(data);
                 window.location.href = "../home.html";
             }
