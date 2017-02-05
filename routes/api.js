@@ -22,6 +22,7 @@ router.route("/login")
                 }else{
                     console.log('created');
                     db.email = req.body.Email;
+                    db.favourites = [];
                     db.save(function(err){
                         if(err) {
                             response = { "error" :false ,"message":data[0]};

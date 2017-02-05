@@ -5,7 +5,6 @@ var mongoSchema = mongoose.Schema;
 
 autoIncrement.initialize(connection);
 var accountSchema = new mongoSchema({
-    accountID: Number,
     email: String,
     favourites:[]
 });
