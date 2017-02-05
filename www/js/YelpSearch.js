@@ -26,7 +26,7 @@ $(document).ready(function(){
         },"json");
     });
     function fill(data){
-        $('#result').empty();
+        $('#results').empty();
         var item = data.businesses;
         var panel2;
         console.log(item);
@@ -34,7 +34,7 @@ $(document).ready(function(){
             var tmp = item[i];
             panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" onclick=interest('+i+','+tmp+')>Interest</button></li>';
         }
-        $('#result').append(panel2);
+        $('#results').append(panel2);
     }
     function interest(num, tmp){
         console.log(num);
