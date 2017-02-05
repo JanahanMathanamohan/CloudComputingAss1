@@ -18,7 +18,7 @@ $(document).ready(function(){
                 if(data.error){
                     alert(data.message.data)
                 }else{
-                    results = data.message;
+                    results = data.message.businesses;
                     console.log(results);
                     fill(results);
                 }
@@ -32,6 +32,7 @@ $(document).ready(function(){
         var num= id.substring(id.indexOf('R')+1);
         num= parseInt(num);
         var tmp = results[num];
+        console.log(tmp);
         $('#R'+num).addClass("hide");
         var panel = '<li class="list-group-item" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id=M'+order+'>Interest</button></li>';
         $('#u').add(panel);
