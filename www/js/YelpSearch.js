@@ -96,7 +96,7 @@ $(document).ready(function(){
                 }else{
                     $('#u').empty();
                     results = data.message;
-                    localStorage.setItem('data', JSON.stringify(data.message));
+                    localStorage.setItem('data', JSON.stringify(toSend));
                     console.log(results);
                 }
             }
