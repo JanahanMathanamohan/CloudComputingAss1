@@ -54,6 +54,7 @@ $(document).ready(function(){
     });
     function fill(data){
         $('#results').empty();
+        var favs = JSON.parse(localStorage.getItem('data')).favourites;
         var item = data;
         var panel2 = "";
         var exist = false;
@@ -61,10 +62,10 @@ $(document).ready(function(){
         for(var i = 0; i < item.length;i++){
             exist = false;
             tmp= item[i];
-            for(var x = 0; x < results.length;x++){
+            for(var x = 0; x < favs.length;x++){
                 console.log(item[i].id);
-                console.log(results[x].id);
-                if(item[i].id === results[x].id){
+                console.log(favs[x].id);
+                if(item[i].id === favs[x].id){
                     exist = true;
                     break;
                 }
@@ -91,6 +92,7 @@ $(document).ready(function(){
                 if(data.error){
                     alert(data.message.data);
                 }else{
+                    $('#u').clear();
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(data.message));
                     console.log(results);
