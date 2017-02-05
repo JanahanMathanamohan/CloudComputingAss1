@@ -94,7 +94,7 @@ $(document).ready(function(){
                 if(data.error){
                     alert(data.message.data);
                 }else{
-                    $('#u').clear();
+                    $('#u').empty();
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(data.message));
                     console.log(results);
