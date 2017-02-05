@@ -56,15 +56,24 @@ $(document).ready(function(){
         $('#results').empty();
         var item = data;
         var panel2 = "";
-        console.log(item);
+        var exist = false;
+        var tmp;
         for(var i = 0; i < item.length;i++){
-            var tmp = item[i];
-            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id='+i+'" class="resultB">Interest</button></li>';
-
+            exist = false;
+            tmp= item[i];
+            for(var x = 0; x < results.length;x++){
+                if(item[i].id === results[x].id){
+                    exist = true;
+                    break;
+                }
+            }
+            if(!(exist)){
+                panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id='+i+'" class="resultB">Interest</button></li>';
+            }
         }
-        console.log(panel2);
         $('#results').append(panel2);
     }
+
     $("#addFav").on("click",function(){
         console.log(update[x]);
         console.log(localStorage.getItem('data'));
@@ -83,6 +92,7 @@ $(document).ready(function(){
                 }else{
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(data.message));
+                    console.log(results);
                 }
             }
             console.log(status);
