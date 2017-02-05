@@ -8,7 +8,7 @@ $(document).ready(function(){
     $("#result").on("click",".resultB", function(){
         var id = this.id;
         var num= parseInt(id);
-        var tmp = results[num];
+        var tmp = data.favourites[num];
         $('#R'+num).removeClass("show");
         $('#R'+num).addClass("hide");
         var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Not Interest</button></li>';
