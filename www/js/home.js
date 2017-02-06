@@ -1,15 +1,9 @@
 var map;
-var marker;
-var autocomplete;
-var service;
+var marker = [];
 var uluru = {lat: -25.363, lng: 131.044};
 var geocoder;
-var item;
-var infowindow;
-var companies;
+var infowindow = [];
 var oms;
-var bounds;
-var validcount = 0;
 // Set the position for Google maps
 function getLocation() {
     if (navigator.geolocation) {
@@ -37,16 +31,25 @@ function initMap() {
     });
     var input = document.getElementById('location');
     geocoder = new google.maps.Geocoder();
-    infowindow = new google.maps.InfoWindow();
     var favs = JSON.parse(localStorage.getItem('data')).favourites;
     var location;
+    var tmp;
+    var panel;
     for(var x = 0; x < favs.length; x++){
+        tmp = favs[x];
         location = favs[x].location;
-        var marker = new google.maps.Marker({
+        marker.push(  new google.maps.Marker({
             map: map,
             position: {lat: location.coordinate.latitude, lng: location.coordinate.longitude },
             icon: '../assets/restaurant.png'
-        })
+        }));
+        panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
+        infowindow.push(new google.maps.InfoWindow({
+             content:panel
+        }));
+        marker[i].addListener('click',function(){
+            infowindow[i].open(map,marker[i]);
+        });
     }
 
 }
