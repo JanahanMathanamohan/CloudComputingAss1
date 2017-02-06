@@ -1,3 +1,7 @@
+/**
+* Janahan Mathanamohan
+* This Contains all the routes for the backend and provides a link to the frontend
+*/
 var express = require('express');
 var router = express.Router();
 var mongoOp = require("../models/accounts");
@@ -8,6 +12,8 @@ var yelp = new Yelp({
     token: 'CUXofq7RhHkE6_wDUoU-1ugpN9lxr068',
     token_secret: 'EYgyOWbwqrlGYoZeUYKlM_CIbeQ'
 })
+
+//Route for retreiving and creating a new account
 router.route("/login")
     .post(function(req,res){
         var db = new mongoOp.accounts();
@@ -46,6 +52,7 @@ router.route("/login")
         })
     });
 
+//Route for updating Restaurants interested in going to 
 router.route("/update")
     .post(function(req,res){
         var response = {};
@@ -71,6 +78,7 @@ router.route("/update")
         });
     });
 
+//Route to lead to the yelp search request
 router.route("/yelpSearch")
     .post(function(req,res){
         yelp.search({

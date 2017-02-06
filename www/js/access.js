@@ -1,3 +1,7 @@
+/**
+* Janahan Mathanamohan
+* This JS file ensures that only logged in users can gain access to the site
+*/
 $(document).ready(function(){
     var loginStatus = localStorage.getItem('loggedin') ;
     if(loginStatus != 'loggedIn' ){

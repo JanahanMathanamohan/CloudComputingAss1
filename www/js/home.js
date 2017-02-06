@@ -1,8 +1,16 @@
+/**
+* Janahan Mathanamohan
+* This JS file contains the methods for home.html
+*/
+
 var map;
 var marker = [];
 var infowindow = [];
 var uluru = {lat: -25.363, lng: 131.044};
-// Set the position for Google maps
+
+/**
+* Gets your current location
+**/
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -10,6 +18,10 @@ function getLocation() {
         alert("Geolocation is not supported by this browser.");
     }
 }
+
+/**
+* Puts your postion on the map
+**/
 function showPosition(position){
     uluru = {lat: position.coords.latitude, lng: position.coords.longitude}
     map.setCenter(uluru);
@@ -19,7 +31,9 @@ function showPosition(position){
     });
 }
 
-//Initializing Google Maps
+/**
+* Initalizes the Google Map
+**/
 function initMap() {
     getLocation();
     map = new google.maps.Map(document.getElementById('map'), {
@@ -31,7 +45,10 @@ function initMap() {
     createMarkers(favs);
 }
 
-//Creates all the Info panels and Markers for the map
+/**
+* Creates all the markers and info windows for your list of restuarants.
+* @param {list of favourite restuarants} favs
+**/
 function createMarkers(favs){
     var location, panel, tmp;
     for(var x = 0; x < favs.length; x++){

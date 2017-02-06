@@ -1,3 +1,12 @@
+/**
+* Janahan Mathanamohan
+* This JS file contains the sign in and sign out function
+*/
+
+/**
+* Handles the Google automated sign in
+* @param {Google Object} googleUser
+*/
 function onSignIn(googleUser) {
     var loginStatus = localStorage.getItem('loggedin') ;
     console.log(":"+loginStatus);
@@ -28,13 +37,10 @@ function onSignIn(googleUser) {
         },"json");
     }
 }
-function empty(){
-        console.log('enter');
-        localStorage.setItem('loggedin',"loggedOut");
-        localStorage.setItem('data',"");
-        localStorage.setItem('prof',"");
-        window.location.href = "../index.html";
-}
+
+/**
+* Handles the google user sign out.
+**/
 function signOut(){
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -43,6 +49,17 @@ function signOut(){
         $('#signOut').removeClass('show');
         $('#signOut').addClass('hidden');
     });
+}
+
+/**
+* Empties the sessions global variables
+*/
+function empty(){
+        console.log('enter');
+        localStorage.setItem('loggedin',"loggedOut");
+        localStorage.setItem('data',"");
+        localStorage.setItem('prof',"");
+        window.location.href = "../index.html";
 }
 $(document).ready(function(){
 

@@ -1,3 +1,7 @@
+/**
+* Janahan Mathanamohan
+* This JS file contains the methods for LookAtList.html
+*/
 $(document).ready(function(){
     var count = 0;
     var order = 0;
@@ -6,20 +10,22 @@ $(document).ready(function(){
     var data = JSON.parse(localStorage.getItem('data'));
     fill(data);
 
-    $("#result").on("click",".resultB", function(){
+    //The delete button functionality. Removes an item from your list.
+    $("#Interest").on("click",".delete", function(){
         var id = this.id;
         var num= parseInt(id);
         var tmp = data.favourites[num];
         $('#R'+num).removeClass("show");
         $('#R'+num).addClass("hide");
-        var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Undo</button></li>';
-        $('#u').append(panel);
+        var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="delete" id='+order+'>Undo</button></li>';
+        $('#removeList').append(panel);
         update.push(num);
         order++;
         count++;
     });
 
-    $("#show").on("click",".unresultB", function(){
+    //The undo button functionality. Re adds the item you wanted to remove from your list
+    $("#unInterest").on("click",".undo", function(){
         console.log(this.id);
         var id = this.id;
         var num= parseInt(id);
@@ -32,19 +38,9 @@ $(document).ready(function(){
         }
 
     });
-    function fill(data){
-        $('#results').empty();
-        var item = data.favourites;
-        var panel2 = "";
-        var exist = false;
-        for(var i = 0; i < item.length;i++){
-            tmp= item[i];
-            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id='+i+'" class="resultB">Delete</button></li>';
-        }
-        $('#results').append(panel2);
-    }
 
-    $("#removeList").on("click",function(){
+    //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
+    $("#update").on("click",function(){
         console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
         var check = true;
@@ -80,6 +76,23 @@ $(document).ready(function(){
             console.log(status);
         },"json");
     });
+
+    /**
+    * Fills in the data obtained in yelp inside the div container list
+    * @param {Yelp Object} data
+    **/
+    function fill(data){
+        $('#list').empty();
+        var item = data.favourites;
+        var panel2 = "";
+        var exist = false;
+        for(var i = 0; i < item.length;i++){
+            tmp= item[i];
+            panel2 += '<li class="list-group-item" id=R'+i+'><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" id='+i+'" class="undo">Undo</button></li>';
+        }
+        $('#list').append(panel2);
+    }
+
 });
 
 
