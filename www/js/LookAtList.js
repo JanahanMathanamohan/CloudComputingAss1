@@ -67,7 +67,7 @@ $(document).ready(function(){
                 if(data.error){
                     alert(data.message.data);
                 }else{
-                    $('#u').empty();
+                    $('#removeList').empty();
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(toSend));
                     console.log(results);
