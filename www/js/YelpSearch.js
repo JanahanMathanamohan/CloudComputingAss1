@@ -3,7 +3,9 @@ $(document).ready(function(){
     var order = 0;
     var update = [];
     var results;
+    $("#loading").hide();
     $("#submit").click(function(){
+        $("#loading").show();
         var toSend = {
             term: $("#term").val(),
             location: $("#location").val(),
@@ -12,6 +14,7 @@ $(document).ready(function(){
             limit: $("#limit").val()
         };
         $.post("https://cloudcompyelp.herokuapp.com/api/yelpSearch",toSend,function(data,status){
+            $("#loading").hide();
             if(status == "success"){
                 console.log("success")
                 console.log(data);
@@ -30,8 +33,8 @@ $(document).ready(function(){
         var id = this.id;
         var num= parseInt(id);
         var tmp = results[num];
-        $('#R'+num).removeClass("show");
-        $('#R'+num).addClass("hide");
+        $('#R'+num).show();
+        $('#R'+num).hide();
         var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Not Interest</button></li>';
         $('#u').append(panel);
         update.push(num);
@@ -44,8 +47,8 @@ $(document).ready(function(){
         var id = this.id;
         var num= parseInt(id);
         $('#M'+num).remove();
-        $('#R'+num).removeClass("hide");
-        $('#R'+num).addClass("show");
+        $('#R'+num).hide();
+        $('#R'+num).show();
         var x = update.indexOf(num);
         if(x != -1){
             update.splice(x,1);
