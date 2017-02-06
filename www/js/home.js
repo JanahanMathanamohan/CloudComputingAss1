@@ -44,8 +44,8 @@ function createMarkers(favs){
             store_id: x,
         }));
         panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
-        for(var i = 0; i < favs.categories.length;i++){
-            panel += ' ' + favs.categories[x][0] +', ';
+        for(var i = 0; i < tmp.categories.length;i++){
+            panel += ' ' + tmp.categories[x][0] +', ';
         }
         panel += '<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
         infowindow.push(new google.maps.InfoWindow({
