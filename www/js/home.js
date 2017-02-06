@@ -1,9 +1,8 @@
-var map;
+var map;:w
+
 var marker = [];
-var uluru = {lat: -25.363, lng: 131.044};
-var geocoder;
 var infowindow = [];
-var oms;
+var uluru = {lat: -25.363, lng: 131.044};
 // Set the position for Google maps
 function getLocation() {
     if (navigator.geolocation) {
@@ -19,7 +18,6 @@ function showPosition(position){
         map: map,
         position: uluru,
     });
-
 }
 
 //Initializing Google Maps
@@ -30,11 +28,13 @@ function initMap() {
         center: uluru
     });
     var input = document.getElementById('location');
-    geocoder = new google.maps.Geocoder();
     var favs = JSON.parse(localStorage.getItem('data')).favourites;
-    var location;
-    var tmp;
-    var panel;
+    createMarkers(favs);
+}
+
+//Creates all the Info panels and Markers for the map
+function createMarkers(favs){
+    var location, panel, tmp;
     for(var x = 0; x < favs.length; x++){
         tmp = favs[x];
         location = favs[x].location;
@@ -44,7 +44,11 @@ function initMap() {
             icon: '../assets/restaurant.png',
             store_id: x,
         }));
-        panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br><p>'+tmp.snippet_text+'</p><br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
+        panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
+        for(var i = 0; i < favs.categories.length;i++){
+            panel += ' ' + favs.categories[x][0] +', ';
+        }
+        panel += '<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
         infowindow.push(new google.maps.InfoWindow({
              content:panel
         }));
@@ -57,8 +61,8 @@ function initMap() {
         });
     }
 
-}
 
+}
 $(document).ready(function(){
 });
 
