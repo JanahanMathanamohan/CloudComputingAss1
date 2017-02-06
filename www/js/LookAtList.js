@@ -61,6 +61,7 @@ $(document).ready(function(){
                     alert(data.message.data);
                 }else{
                     $('#removeList').empty();
+                    update = [];
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(toSend));
                 }

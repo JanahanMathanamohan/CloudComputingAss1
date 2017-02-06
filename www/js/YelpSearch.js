@@ -69,7 +69,8 @@ $(document).ready(function(){
                 if(data.error){
                     alert(data.message.data);
                 }else{
-                    $('#u').empty();
+                    $('#NewFavs').empty();
+                    update = [];
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(toSend));
                 }
