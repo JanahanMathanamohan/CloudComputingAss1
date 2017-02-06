@@ -56,7 +56,7 @@ function createMarkers(favs){
             console.log(index);
             console.log(this);
             console.log(infowindow);
-            infowindow[index].open(map,index);
+            infowindow[index].open(map,marker[index]);
         });
     }
 
