@@ -17,12 +17,11 @@ $(document).ready(function(){
             $("#loading").hide();
             if(status == "success"){
                 console.log("success")
-                console.log(data);
                 if(data.error){
                     alert(data.message.data)
                 }else{
                     results = data.message.businesses;
-                    console.log(results);
+                    alert("Done Search");
                     fill(results);
                 }
             }
@@ -33,8 +32,8 @@ $(document).ready(function(){
         var id = this.id;
         var num= parseInt(id);
         var tmp = results[num];
-        $('#R'+num).show();
-        $('#R'+num).hide();
+        $('#R'+num).removeClass("show");
+        $('#R'+num).addClass("hide");
         var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="unresultB" id='+order+'>Not Interest</button></li>';
         $('#u').append(panel);
         update.push(num);
@@ -47,8 +46,8 @@ $(document).ready(function(){
         var id = this.id;
         var num= parseInt(id);
         $('#M'+num).remove();
-        $('#R'+num).hide();
-        $('#R'+num).show();
+        $('#R'+num).removeClass("hide");
+        $('#R'+num).addClass("show");
         var x = update.indexOf(num);
         if(x != -1){
             update.splice(x,1);
