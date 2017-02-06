@@ -41,14 +41,16 @@ function initMap() {
         marker.push(  new google.maps.Marker({
             map: map,
             position: {lat: location.coordinate.latitude, lng: location.coordinate.longitude },
-            icon: '../assets/restaurant.png'
+            icon: '../assets/restaurant.png',
+            store_id: x,
         }));
         panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
         infowindow.push(new google.maps.InfoWindow({
              content:panel
         }));
         marker[x].addListener('click',function(){
-            infowindow[x].open(map,marker[x]);
+            var index = this.get('id');
+            infowindow[index].open(map,index);
         });
     }
 
