@@ -44,7 +44,7 @@ function initMap() {
             icon: '../assets/restaurant.png',
             store_id: x,
         }));
-        panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
+        panel = '<div class="container" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br><p>'+tmp.snippet_text+'</p><br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
         infowindow.push(new google.maps.InfoWindow({
              content:panel
         }));
