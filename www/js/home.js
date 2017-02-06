@@ -46,6 +46,7 @@ function createMarkers(favs){
         console.log(tmp);
         panel = '<div><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
         for(var i = 0; i < tmp.categories.length;i++){
+            console.log(tmp.categories);
             panel += ' ' + tmp.categories[x][0] +', ';
         }
         panel += '<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a></div>';
