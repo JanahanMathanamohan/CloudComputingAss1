@@ -49,7 +49,10 @@ function initMap() {
              content:panel
         }));
         marker[x].addListener('click',function(){
-            var index = this.get('id');
+            var index = this.get('store_id');
+            console.log(index);
+            console.log(this);
+            console.log(infowindow);
             infowindow[index].open(map,index);
         });
     }
