@@ -43,6 +43,7 @@ function createMarkers(favs){
             icon: '../assets/restaurant.png',
             store_id: x,
         }));
+        console.log(tmp);
         panel = '<div><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
         for(var i = 0; i < tmp.categories.length;i++){
             panel += ' ' + tmp.categories[x][0] +', ';
