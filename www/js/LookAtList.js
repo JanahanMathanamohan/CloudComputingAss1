@@ -6,7 +6,6 @@ $(document).ready(function(){
     var count = 0;
     var order = 0;
     var update = [];
-    console.log(localStorage.getItem('data'));
     var data = JSON.parse(localStorage.getItem('data'));
     fill(data);
 
@@ -26,7 +25,6 @@ $(document).ready(function(){
 
     //The undo button functionality. Re adds the item you wanted to remove from your list
     $("#unInterest").on("click",".undo", function(){
-        console.log(this.id);
         var id = this.id;
         var num= parseInt(id);
         $('#M'+num).remove();
@@ -41,12 +39,10 @@ $(document).ready(function(){
 
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
-        console.log(localStorage.getItem('data'));
         var toSend = JSON.parse(localStorage.getItem('data'));
         var check = true;
         var favs = toSend.favourites;
         var newFav = [];
-        console.log(toSend);
         for(var x = 0; x < favs.length; x++){
             check = true;
             for(var i = 0; i < update.length; i++){
@@ -59,21 +55,16 @@ $(document).ready(function(){
             }
         }
         toSend.favourites = newFav;
-        console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
-                console.log("success")
-                console.log(data);
                 if(data.error){
                     alert(data.message.data);
                 }else{
                     $('#removeList').empty();
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(toSend));
-                    console.log(results);
                 }
             }
-            console.log(status);
         },"json");
     });
 
