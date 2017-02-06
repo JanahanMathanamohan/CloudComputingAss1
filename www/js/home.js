@@ -47,8 +47,8 @@ function initMap() {
         infowindow.push(new google.maps.InfoWindow({
              content:panel
         }));
-        marker[i].addListener('click',function(){
-            infowindow[i].open(map,marker[i]);
+        marker[x].addListener('click',function(){
+            infowindow[x].open(map,marker[x]);
         });
     }
 
