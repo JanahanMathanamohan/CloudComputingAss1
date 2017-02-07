@@ -57,25 +57,19 @@ router.route("/login")
 router.route("/update")
     .post(function(req,res){
         var response = {};
-        mongoOp.accounts.find({email:req.body.email},function(err,data){
+        mongoOp.accounts.findById(req.body._id,function(err,data){
             if(err){
                 res.json({"error":true, "message":true});
             }else{
-                res.json({data:req.body.favourites});
-                if(data.length != 0){
-                    data[0].favourites = req.body.favourites;
-                    data[0].save(function(err){
+                    data.favourites = req.body.favourites;
+                    data.save(function(err){
                         if(err) {
                             response = { "error":true,"message":err};
                         } else {
-                            response = {"error":false, "message":data[0]};
+                            response = {"error":false, "message":data};
                         }
                         res.json(response);
                     });
-                }else{
-                    response = {"error":true, "message":"no email"};
-                    res.json(response);
-                }
             }
         });
     });
