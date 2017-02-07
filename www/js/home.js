@@ -1,5 +1,6 @@
 /**
 * Janahan Mathanamohan
+* home.js
 * This JS file contains the methods for home.html
 */
 
@@ -60,7 +61,7 @@ function createMarkers(favs){
             icon: '../assets/restaurant.png',
             store_id: x,
         }));
-        panel = '<div><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
+        panel = '<div><img src='+tmp.image_url+' /><br>'+tmp.name+'<br>Rating: '+tmp.rating+'<br>Categories:';
         for(var i = 0; i < tmp.categories.length;i++){
             panel += ' ' + tmp.categories[i][0] +', ';
         }
@@ -73,9 +74,8 @@ function createMarkers(favs){
             infowindow[index].open(map,marker[index]);
         });
     }
-
-
 }
+
 $(document).ready(function(){
 });
 

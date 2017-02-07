@@ -1,5 +1,6 @@
 /**
-* Janahan Mathanamohan
+ * Janahan Mathanamohan
+ * SignIn.js
 * This JS file contains the sign in and sign out function
 */
 

@@ -1,5 +1,6 @@
 /**
 * Janahan Mathanamohan
+* access.js
 * This JS file ensures that only logged in users can gain access to the site
 */
 $(document).ready(function(){

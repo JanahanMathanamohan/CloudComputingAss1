@@ -1,5 +1,6 @@
 /**
 * Janahan Mathanamohan
+* LookAtList.js
 * This JS file contains the methods for LookAtList.html
 */
 $(document).ready(function(){
