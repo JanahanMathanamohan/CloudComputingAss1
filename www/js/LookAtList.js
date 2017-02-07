@@ -17,7 +17,7 @@ $(document).ready(function(){
         var tmp = data.favourites[num];
         $('#R'+num).removeClass("show");
         $('#R'+num).addClass("hide");
-        var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="delete" id='+order+'>Undo</button></li>';
+        var panel = '<li class="list-group-item" id="M'+order+'" ><img src='+tmp.image_url+' />'+tmp.name+'<br>Rating: '+tmp.rating+'<br>'+tmp.snippet_text+'<br>'+tmp.location.address+'<br><a href="'+tmp.url+'" target=_blank>Link</a><br><button type="button" class="undo" id='+order+'>Undo</button></li>';
         $('#removeList').append(panel);
         update.push(num);
         order++;
