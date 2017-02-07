@@ -61,7 +61,7 @@ function createMarkers(favs){
             icon: '../assets/restaurant.png',
             store_id: x,
         }));
-        panel = '<div><img src='+tmp.image_url+' /><br><h4>'+tmp.name+'</h4><br>Rating: '+tmp.rating+'<br>Categories:';
+        panel = '<div><img src='+tmp.image_url+' /><br><h4>'+tmp.name+'</h4>Rating: '+tmp.rating+'<br>Categories:';
         for(var i = 0; i < tmp.categories.length;i++){
             panel += ' ' + tmp.categories[i][0] +', ';
         }
