@@ -56,18 +56,26 @@ $(document).ready(function(){
             }
         }
         toSend.favourites = newFav;
-        $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
-            if(status == "success"){
-                if(data.error){
-                    alert(data.message.data);
-                }else{
-                    $('#removeList').empty();
-                    update = [];
-                    results = data.message;
-                    localStorage.setItem('data', JSON.stringify(toSend));
+        var toSend = JSON.stringify(toSend);
+        $.ajax({
+            url:"https://cloudcompyelp.herokuapp.com/api/update",
+            type:"POST",
+            data:toSend,
+            contentType:'application/json',
+            dataType: "JSON",
+            success: function(data,status){
+                if(status == "success"){
+                    if(data.error){
+                        alert(data.message.data);
+                    }else{
+                        $('#removeList').empty();
+                        update = [];
+                        results = data.message;
+                        localStorage.setItem('data', JSON.stringify(toSend));
+                    }
                 }
             }
-        },"json");
+        })
     });
 
     /**
