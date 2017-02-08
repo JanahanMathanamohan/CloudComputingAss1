@@ -63,13 +63,14 @@ $(document).ready(function(){
     $("#update").on("click",function(){
         var holder = JSON.parse(localStorage.getItem('data'));
         var toSend = {};
-        toSend.id = holder.id;
+        toSend.id = holder._id;
         toSend.favourites = [];
         console.log(results);
         for(var x = 0; x < update.length; x++){
+            console.log(results[update[x]]);
+            toSend.favourites.push(results[update[x]]);
         }
         console.log(toSend.favourites);
-        console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
                 if(data.error){
