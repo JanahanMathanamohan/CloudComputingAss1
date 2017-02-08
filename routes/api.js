@@ -61,7 +61,7 @@ router.route("/update")
             if(err){
                 res.json({"error":true, "message":true});
             }else{
-                data.favourites = []
+                data.favourites = [];
                 res.json({data:req.body});
                 for(var x = 0; x < req.body.favourites.length; x++){
                     data.favourites = JSON.parse(req.body.favourites[x]);
