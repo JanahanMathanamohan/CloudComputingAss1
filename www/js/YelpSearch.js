@@ -62,8 +62,19 @@ $(document).ready(function(){
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
         var toSend = JSON.parse(localStorage.getItem('data'));
+        var tmp = {};
+        console.log(results);
         for(var x = 0; x < update.length; x++){
-            toSend.favourites.push(results[update[x]]);
+            tmp =results[update[x]];
+            toSend.favourites.push({
+                "image_url": tmp.image_url,
+                "name": tmp.name,
+                "url": tmp.url,
+                "rating": tmp.rating,
+                "location": tmp.location,
+                "categories": tmp.categories,
+                "snippet_text": tmp.snippet_text
+            });
         }
         console.log(toSend);
         $.ajax({
