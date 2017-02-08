@@ -32,7 +32,6 @@ function onSignIn(googleUser) {
             if(status == "success"){
                 localStorage.setItem('loggedin', "loggedIn");
                 localStorage.setItem('data', JSON.stringify(data.message));
-                console.log(data);
                 window.location.href = "../home.html";
             }
         },"json");
