@@ -76,7 +76,6 @@ $(document).ready(function(){
                 "snippet_text": tmp.snippet_text
             });
         }
-        console.log(toSend);
         console.log(JSON.stringify(toSend));
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
