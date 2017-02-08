@@ -78,11 +78,12 @@ $(document).ready(function(){
         }
         console.log(toSend);
         toSend = JSON.stringify(toSend);
+        console.log(toSend);
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
             contentType: 'application/json',
-            data:JSON.parse(toSend),
+            data:{"message":toSend},
             success: function(data,status){
                 if(status == "success"){
                     if(data.error){
