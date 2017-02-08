@@ -63,9 +63,7 @@ router.route("/update")
             }else{
                 data.favourites = [];
                 res.json({data:req.body});
-                for(var x = 0; x < req.body.favourites.length; x++){
-                    data.favourites = req.body.favourites[x];
-                }
+                data.favourites = req.body.favourites;
                 data.save(function(err){
                     if(err) {
                         response = { "error":true,"message":err};

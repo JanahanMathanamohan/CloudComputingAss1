@@ -56,41 +56,35 @@ $(document).ready(function(){
         if(x != -1){
             update.splice(x,1);
         }
+
     });
 
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
         var toSend = JSON.parse(localStorage.getItem('data'));
-        var toAdd = {};
-        var tmp = {};
         for(var x = 0; x < update.length; x++){
-            console.log(results[update[x]]);
-            tmp = results[update[x]];
-            toAdd = {
-                "image_url":tmp.image_url,
-                "name": tmp.name,
-                "tmp.rating": tmp.rating,
-                "snippet_text":tmp.snippet_text,
-                "location": tmp.location,
-                "url": tmp.url,
-                "categories": tmp.categories
-            };
-            console.log(toAdd);
-            toSend.favourites.push(toAdd);
+            toSend.favourites.push(results[update[x]]);
         }
-        console.log(toSend);
-        $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
-            if(status == "success"){
-                if(data.error){
-                    alert(data.message.data);
-                }else{
-                    $('#NewFavs').empty();
-                    update = [];
-                    console.log(data);
-                    localStorage.setItem('data', JSON.stringify(toSend));
+        console.log(data);
+        $.ajax({
+            url:"https://cloudcompyelp.herokuapp.com/api/update",
+            type:"POST",
+            data:toSend,
+            contentType:"application/json; charset=utf-8",
+            dataType:"json",
+            success: function(data,status){
+                if(status == "success"){
+                    if(data.error){
+                        alert(data.message.data);
+                    }else{
+                        $('#NewFavs').empty();
+                        update = [];
+                        console.log(data);
+                        localStorage.setItem('data', JSON.stringify(toSend));
+                    }
                 }
             }
-        },"json");
+        })
     });
 
     /**
