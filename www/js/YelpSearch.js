@@ -76,11 +76,12 @@ $(document).ready(function(){
                 "snippet_text": tmp.snippet_text
             });
         }
-        console.log(JSON.stringify(toSend));
+        var toSend =JSON.stringify(toSend);
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
-            data:{"message":toSend},
+            data:toSend,
+            contentType:'application/json',
             dataType: "JSON",
             success: function(data,status){
                 if(status == "success"){
