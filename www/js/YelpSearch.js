@@ -81,7 +81,7 @@ $(document).ready(function(){
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
             contentType: 'application/json',
-            data:JSON.parse(toSend),
+            data:toSend,
             success: function(data,status){
                 if(status == "success"){
                     if(data.error){
