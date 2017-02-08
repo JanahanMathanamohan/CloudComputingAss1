@@ -74,6 +74,7 @@ $(document).ready(function(){
                 }else{
                     $('#NewFavs').empty();
                     update = [];
+                    console.log(data);
                     results = data.message;
                     localStorage.setItem('data', JSON.stringify(toSend));
                 }
