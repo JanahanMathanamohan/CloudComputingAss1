@@ -17,7 +17,7 @@ $(document).ready(function(){
         console.log("enter");
         var login =JSON.parse(localStorage.getItem('profile'));
         var panel = '<b>Welcome: '+login.Name+ ' </b>' ;
-        $('#intro').append();
+        $('#intro').append(panel);
     }
 });
 
