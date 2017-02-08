@@ -63,7 +63,6 @@ $(document).ready(function(){
     $("#update").on("click",function(){
         var toSend = JSON.parse(localStorage.getItem('data'));
         var tmp = {};
-        console.log(results);
         for(var x = 0; x < update.length; x++){
             tmp =results[update[x]];
             toSend.favourites.push({
@@ -90,7 +89,6 @@ $(document).ready(function(){
                     }else{
                         $('#NewFavs').empty();
                         update = [];
-                        console.log(data);
                         localStorage.setItem('data', toSend);
                     }
                 }

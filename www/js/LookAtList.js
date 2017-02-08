@@ -8,7 +8,6 @@ $(document).ready(function(){
     var order = 0;
     var update = [];
     var data = JSON.parse(localStorage.getItem('data'));
-    console.log(data);
     fill(data);
 
     //The delete button functionality. Removes an item from your list.
