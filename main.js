@@ -14,6 +14,7 @@ router.get("/",function(req,res){
     res.sendFile(path + "index.html");
 });
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({"extended" : false}));
 app.use("/api",api);
 app.use(express.static(__dirname + '/www'));
 app.use("/",router);

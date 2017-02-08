@@ -80,8 +80,8 @@ $(document).ready(function(){
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
-            contentType: 'application/json',
             data:{"message":toSend},
+            dataType: "JSON",
             success: function(data,status){
                 if(status == "success"){
                     if(data.error){
