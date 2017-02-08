@@ -65,7 +65,7 @@ $(document).ready(function(){
         console.log(update);
         console.log(results);
         for(var x = 0; x < update.length; x++){
-            toSend.favourites.push({results[update[x]]});
+            toSend.favourites.push(results[update[x]]);
         }
         console.log("update");
         console.log(toSend);
