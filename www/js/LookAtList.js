@@ -8,6 +8,7 @@ $(document).ready(function(){
     var order = 0;
     var update = [];
     var data = JSON.parse(localStorage.getItem('data'));
+    console.log(data);
     fill(data);
 
     //The delete button functionality. Removes an item from your list.
@@ -71,7 +72,7 @@ $(document).ready(function(){
                         $('#removeList').empty();
                         update = [];
                         results = data.message;
-                        localStorage.setItem('data', JSON.stringify(toSend));
+                        localStorage.setItem('data', toSend);
                     }
                 }
             }

@@ -91,7 +91,7 @@ $(document).ready(function(){
                         $('#NewFavs').empty();
                         update = [];
                         console.log(data);
-                        localStorage.setItem('data', JSON.stringify(toSend));
+                        localStorage.setItem('data', toSend);
                     }
                 }
             }
