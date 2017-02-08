@@ -66,12 +66,12 @@ $(document).ready(function(){
             toSend.favourites.push(results[update[x]]);
         }
         console.log(toSend);
+        console.log(JSON.stringify(toSend));
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
             headers: {'Content-Type': 'application/json'},
             data:toSend,
-            dataType:"json",
             success: function(data,status){
                 if(status == "success"){
                     if(data.error){
