@@ -13,6 +13,10 @@ $(document).ready(function(){
             console.log("Not Logged in");
         }
         window.location.href = "../index.html";
+    }else{
+        var login =JSON.parse(localStorage.getItem('profile'));
+        var panel = '<b>Welcome: '+login.Name+ ' </b>' ;
+        $('#intro').append();
     }
 });
 
