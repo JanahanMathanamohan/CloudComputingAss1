@@ -56,20 +56,26 @@ $(document).ready(function(){
         if(x != -1){
             update.splice(x,1);
         }
-
     });
 
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
-        var holder = JSON.parse(localStorage.getItem('data'));
-        var toSend = {};
-        toSend.id = holder._id;
-        toSend.favourites = [];
-        console.log(holder);
-        console.log(results);
+        var toSend = JSON.parse(localStorage.getItem('data'));
+        var toAdd = {};
+        var tmp = {};
         for(var x = 0; x < update.length; x++){
             console.log(results[update[x]]);
-            toSend.favourites.push(results[update[x]]);
+            tmp = results[update[x]];
+            toAdd = {
+                "image_url":tmp.image_url,
+                "name": tmp.name,
+                "tmp.rating": tmp.rating,
+                "snippet_text":tmp.snippet_text,
+                "location": tmp.location,
+                "url": tmp.url,
+                "categories": tmp.categories
+            };
+            toSend.favourites.push(toAdd);
         }
         console.log(toSend.favourites);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
