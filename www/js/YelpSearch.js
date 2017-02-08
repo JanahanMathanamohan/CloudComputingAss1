@@ -65,7 +65,7 @@ $(document).ready(function(){
         for(var x = 0; x < update.length; x++){
             toSend.favourites.push(results[update[x]]);
         }
-        console.log(data);
+        console.log(toSend);
         $.ajax({
             url:"https://cloudcompyelp.herokuapp.com/api/update",
             type:"POST",
