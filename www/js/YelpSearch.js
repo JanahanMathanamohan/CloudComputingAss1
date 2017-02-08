@@ -61,9 +61,12 @@ $(document).ready(function(){
 
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
-        var toSend = JSON.parse(localStorage.getItem('data'));
+        var holder = JSON.parse(localStorage.getItem('data'));
+        var toSend = {};
+        toSend.id = holder.id;
+        toSend.favourites = [];
+        console.log(reults);
         for(var x = 0; x < update.length; x++){
-            toSend.favourites.push(results[update[x]]);
         }
         console.log(toSend.favourites);
         console.log(toSend);

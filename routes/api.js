@@ -57,7 +57,7 @@ router.route("/login")
 router.route("/update")
     .post(function(req,res){
         var response = {};
-        mongoOp.accounts.findById(req.body._id,function(err,data){
+        mongoOp.accounts.findById(req.body.id,function(err,data){
             if(err){
                 res.json({"error":true, "message":true});
             }else{
