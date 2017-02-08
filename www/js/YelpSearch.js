@@ -75,9 +75,10 @@ $(document).ready(function(){
                 "url": tmp.url,
                 "categories": tmp.categories
             };
+            console.log(toAdd);
             toSend.favourites.push(toAdd);
         }
-        console.log(toSend.favourites);
+        console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){
                 if(data.error){
