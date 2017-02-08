@@ -57,13 +57,14 @@ router.route("/login")
 router.route("/update")
     .post(function(req,res){
         var response = {};
-        var request = JSON.parse(req.body.message);
-        mongoOp.accounts.findById(request._id,function(err,data){
+        mongoOp.accounts.findById(req.body._id,function(err,data){
             if(err){
                 res.json({"error":true, "message":true});
             }else{
                 data.favourites = [];
-                data.favourites = request.favourites;
+
+                res.json({data:req.body});
+                data.favourites = req.body.favourites;
                 data.save(function(err){
                     if(err) {
                         response = { "error":true,"message":err};
