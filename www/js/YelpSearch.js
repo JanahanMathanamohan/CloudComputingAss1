@@ -65,6 +65,7 @@ $(document).ready(function(){
         var toSend = {};
         toSend.id = holder._id;
         toSend.favourites = [];
+        console.log(holder);
         console.log(results);
         for(var x = 0; x < update.length; x++){
             console.log(results[update[x]]);
