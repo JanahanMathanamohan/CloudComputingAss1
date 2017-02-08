@@ -62,12 +62,10 @@ $(document).ready(function(){
     //Update Button functionality. To compile the list of restaurants to the backend and send the request to the backend
     $("#update").on("click",function(){
         var toSend = JSON.parse(localStorage.getItem('data'));
-        console.log(update);
-        console.log(results);
         for(var x = 0; x < update.length; x++){
             toSend.favourites.push(results[update[x]]);
         }
-        console.log("update");
+        toSend.favourites = JSON.stringify(toSend.favourites);
         console.log(toSend);
         $.post("https://cloudcompyelp.herokuapp.com/api/update",toSend,function(data,status){
             if(status == "success"){

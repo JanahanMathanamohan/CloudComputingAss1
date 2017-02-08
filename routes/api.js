@@ -62,18 +62,15 @@ router.route("/update")
                 res.json({"error":true, "message":true});
             }else{
                 res.json({data:req.body});
-                    for(var x = 0; x < req.body.favourites.length; x++){
-                         data.favourites.push(req.body.favourites[x]);
+                data.favourites = JSON.parse(req.body.favourites);
+                data.save(function(err){
+                    if(err) {
+                        response = { "error":true,"message":err};
+                    } else {
+                        response = {"error":false, "message":data};
                     }
-                    console.log(data.favourites);
-                    data.save(function(err){
-                        if(err) {
-                            response = { "error":true,"message":err};
-                        } else {
-                            response = {"error":false, "message":data};
-                        }
-                        res.json(response);
-                    });
+                    res.json(response);
+                });
             }
         });
     });
